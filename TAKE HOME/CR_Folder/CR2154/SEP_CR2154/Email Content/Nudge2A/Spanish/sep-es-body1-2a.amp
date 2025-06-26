@@ -1,0 +1,26 @@
+<!--Amscript below-->
+%%[
+<br />
+<br />
+SET @casenumber= AttributeValue("CaseNumber")
+<br />
+SET @sepreason = AttributeValue("SEPReason_Spanish")
+<br />
+SET @languagepreference = AttributeValue("LanguagePreference")
+<br />
+<br />
+]%%
+<br>
+<br>
+<span style="font-family:Georgia;">
+    <span style="font-size:17px;">
+        Gracias por enviar el comprobante solicitado para su inscripción en QHP en el <b>Caso&nbsp;#%%=v(@casenumber)=%%&nbsp;</b>
+        por las siguientes razones especiales de inscripción:
+        <ul>
+            <li>
+                <b>%%=v(@sepreason)=%%</b>
+            </li>
+        </ul>
+        Hemos recibido su comprobante y actualmente lo estamos revisando. Visite el panel de control de Kynect en los siguientes <b>3-4 días hábiles</b> para ver el estado.
+    </span>
+</span>

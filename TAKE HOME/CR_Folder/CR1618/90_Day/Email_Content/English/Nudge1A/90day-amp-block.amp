@@ -1,0 +1,11 @@
+%%[
+SET @languagePreference = AttributeValue("LanguagePreference")
+
+IF @languagePreference == "Spanish" THEN
+    SET @subjectLine = "Se acerca su renovación de Medicaid"
+    SET @preHeader = "Prepárese para la renovación confirmando su dirección en kynect"
+ELSE
+    SET @subjectLine = "Your Medicaid renewal is coming up"
+    SET @preHeader = "Prepare for renewal by confirming your address in kynect"
+ENDIF
+]%%

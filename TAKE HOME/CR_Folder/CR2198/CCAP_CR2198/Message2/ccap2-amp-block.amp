@@ -1,0 +1,11 @@
+%%[
+SET @languagePreference = AttributeValue("LanguagePreference")
+
+IF @languagePreference == "Spanish" THEN
+    SET @subjectLine = "Recordatorio: Cargue la información del proveedor de cuidado infantil"
+    SET @preHeader = "¡Cargue la información de su proveedor de cuidado infantil hoy mismo!"
+ELSE
+    SET @subjectLine = "Friendly Reminder: Upload Your Child Care Provider Information"
+    SET @preHeader = "Upload Your Child Care Provider Info Today!"
+ENDIF
+]%%

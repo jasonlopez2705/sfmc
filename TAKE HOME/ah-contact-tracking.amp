@@ -1,0 +1,370 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Tracking</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .dashboard {
+        max-width: 100%;
+        margin: 20px auto;
+        background: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+        font-size: 18px; /* Set all headers to the same smaller size */
+        margin-bottom: 10px;
+    }
+
+    h1 {
+        color: #2b596c; /* Navy blue for Platform Health Dashboard */
+    }
+
+    h2 {
+        color: #2b596c; /* Navy blue for Key Health cards */
+        border-bottom: 3px solid #2b596c;
+        font-weight: bold; /* Make it bold */
+    }
+
+    .key-stats h2 {
+        color: #4a4a4a; /* Dark grey for Key Stats */
+    }
+
+    .dashboard-layout {
+        margin-bottom: 20px;
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 15px;
+    }
+
+    .dashboard-layout-card {
+        display: flex;
+        align-items: center;
+    }
+
+    .dashboard-layout-card p {
+        margin-left: 10px;
+        font-size: 16px;
+    }
+
+    .key-stats {
+        text-align: left;
+        max-width: 50%;
+    }
+
+    .key-stats ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        color: #333;
+    }
+
+    .key-stats ul li {
+        position: relative;
+        padding: 8px 0;
+    }
+
+    .key-stats ul li:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #cce5ff;
+    }
+
+    .key-health-cards {
+        margin-top: 20px;
+    }
+
+    .card-grid {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: 30%;
+        text-align: center;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px 10px;
+    }
+
+    .card-header {
+        background-color: #e9edf5;
+        padding: 10px 0;
+        font-size: 16px;
+        font-weight: bold;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        color: #333;
+    }
+
+    .card-body {
+        padding: 20px 0;
+        background-color: #f9f9f9;
+    }
+
+    .status-icon-Complete::before {
+        content: '✔';
+        font-size: 24px;
+        color: white;
+    }
+
+    .status-icon-Complete {
+        width: 50px;
+        height: 50px;
+        background-color: #4CAF50;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .status-icon-Error::before {
+        content: '✖'; /* This is a Unicode character for a heavy multiplication "X" symbol */
+        font-size: 24px;
+        color: white;
+    }
+
+    .status-icon-Error {
+        width: 50px;
+        height: 50px;
+        background-color: #F44336;
+        border-radius: 50%;
+        margin: 0 auto 10px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-footer {
+        font-size: 14px;
+        color: #333;
+        margin-top: 10px;
+    }
+
+    .campaign-table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .campaign-table th, .campaign-table td {
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    .campaign-table th {
+        background-color: #f9f9f9;
+        color: #333;
+    }
+/* new */
+    .campaign-table td.status-Active {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+    }
+
+    .campaign-table td.status-complete {
+        background-color: #4CAF50;
+        color: white;
+        text-align: center;
+    }
+
+    .campaign-table td.status-failed {
+        background-color: #F44336;
+        color: white;
+        text-align: center;
+    }
+
+    .campaign-table td.status-Paused {
+        background-color: #FFC107;
+        color: black;
+        text-align: center;
+    }
+
+    .campaign-table td.status-delayed {
+        background-color: #FF9800;
+        color: black;
+        text-align: center;
+    }
+
+    .campaign-table td.status-scheduled {
+        background-color: #2196F3;
+        color: white;
+        text-align: center;
+    }
+
+    .campaign-table td.status-expected {
+        background-color: #9E9E9E;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+%%[
+
+/* Key Stats */
+SET @rows = LookupRows("AH_Key_Stats_Contact_Tracking", "DisplayOnDashboard", "True")
+SET @row = Row(@rows, 1)
+SET @TotalPurchasedContact = Field(@row, "TotalPurchasedContact")
+SET @RemainingContacts = Field(@row, "RemainingContacts")
+SET @UnderContacts = Field(@row, "UnderContacts")
+
+IF @UnderContacts == "True" THEN
+    SET @ContactsIndicator = "status-icon-Complete"
+    SET @ContactsMessage = "Under Contacts"
+ELSE
+    SET @ContactsIndicator = "status-icon-Error"
+    SET @ContactsMessage = "Over Contacts"
+ENDIF
+
+/* Contacts Utilized */
+SET @rows = LookupRows("AH_Contact_Tracking_Contacts_Utilized", "DisplayOnDashboard", "True")
+SET @row = Row(@rows, 1)
+SET @TotalContacts = Field(@row, "TotalContacts")
+SET @EmailContacts = Field(@row, "EmailContacts")
+SET @PhoneContacts = Field(@row, "PhoneContacts")
+
+/* Fetching data from All_Contacts_Log DE */
+SET @currentTimestamp = Now()
+SET @easternTimestamp = DateAdd(@currentTimestamp, 2, "H")
+SET @minute = DatePart(@easternTimestamp, "MI")
+
+IF @minute < 15 THEN
+    SET @formattedTimestamp = FormatDate(DateAdd(@currentTimestamp, -1, "H"), "yyyy-MM-dd HH:00:00")
+    SET @easternTimestamp = FormatDate(DateAdd(@easternTimestamp, -1, "H"), "MM-dd-yyyy hh:15:00")
+ELSE
+    SET @formattedTimestamp = FormatDate(@currentTimestamp, "yyyy-MM-dd HH:00:00")
+    SET @easternTimestamp = FormatDate(@easternTimestamp, "MM-dd-yyyy hh:15:00")
+ENDIF
+
+SET @allContactsRows = LookupOrderedRows("All_Contacts_Log", 1, "Timestamp", "Timestamp", @formattedTimestamp)
+SET @updatedAllContactsRow = Row(@allContactsRows, 1)
+SET @allContactsCount = Field(@updatedAllContactsRow, "All_Contacts")
+SET @contactChange = Field(@updatedAllContactsRow, "ContactChange")
+
+]%%
+
+<div class="dashboard">
+<!-- Contact Tracking -->
+    <div class="dashboard-layout">
+        <h2>Contact Tracking</h2>
+        <div class="dashboard-header">
+            <div class="card">
+                <div class="card-header">Contacts</div>
+                <div class="card-body">
+                    <div class="%%=v(@ContactsIndicator)=%%"></div>
+                </div>
+                <div class="card-footer">%%=v(@ContactsMessage)=%%</div>
+            </div>
+            <div class="key-stats">
+                <h1>Key Stats</h1>
+                <ul>
+                    <li>Total Purchased Contacts: %%=FormatNumber(@TotalPurchasedContact, "N0")=%%</li>
+                    <li>Remaining Contacts: %%=FormatNumber(@RemainingContacts, "N0")=%%</li>          
+                </ul>          
+            </div>
+        </div>
+    </div>
+
+<!-- Contacts Purchased -->
+    <div class="key-health-cards">
+        <h2>Contacts Purchased</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">Contacts Purchased</div>
+                <div class="card-body">
+                        <div>%%=FormatNumber(@TotalPurchasedContact, "N0")=%%</div>
+            </div>     
+        </div>
+    </div>
+
+<!-- Contacts Utilized -->
+    <div class="key-health-cards">
+        <h2>Contacts Utilized</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">Total Contacts</div>
+                <div class="card-body">
+                        <div>%%=FormatNumber(@TotalContacts, "N0")=%%</div>
+            </div>     
+        </div>
+        <div class="card">
+            <div class="card-header">Email Contacts</div>
+            <div class="card-body">
+                <div>%%=FormatNumber(@EmailContacts, "N0")=%%</div>
+            </div>     
+        </div>
+        <div class="card">
+            <div class="card-header">Phone Contacts</div>
+            <div class="card-body">
+                <div>%%=FormatNumber(@PhoneContacts, "N0")=%%</div>
+            </div>     
+        </div>
+    </div>
+
+<!-- Contacts Remaining -->
+    <div class="key-health-cards">
+        <h2>Contacts Remaining</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">Contacts Remaining</div>
+                <div class="card-body">
+                    <div>%%=FormatNumber(@RemainingContacts, "N0")=%%</div>
+                </div>     
+            </div>
+        </div>
+    </div>
+
+<!-- All Contacts Count -->
+    <div class="key-health-cards">
+        <h2>All Contacts Count</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">All Contacts Count</div>
+                <div class="card-body">
+                    <div>%%=FormatNumber(@allContactsCount, "N0")=%%</div>
+                </div>     
+            </div>
+            <div class="card">
+                <div class="card-header">Contact Change Since Last Hour</div>
+                <div class="card-body">
+                    <div>%%=FormatNumber(@contactChange, "N0")=%%</div>
+                </div>     
+            </div>
+            <div class="card">
+                <div class="card-header">Last Time Updated</div>
+                <div class="card-body">
+                    <div>%%=v(@formattedTimestamp)=%%</div>
+                </div>     
+            </div>
+        </div>
+    <div>
+
+
+</div></div></div>

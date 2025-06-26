@@ -1,0 +1,48 @@
+%%[
+SET @ampBlockKey = "phase3-amp-block" /* AMP Block Key */ 
+SET @logoHeaderKey = "ky-ssp-kynect-healthcare-coverag-eng" /* Logo Header Key */
+SET @blueLineKey = "blue-horizontal-line" /* Blue Line Key */
+SET @engPHEYoutubeKey = "phase3-phe-youtube" /* PHE YouTube Key */
+SET @esPHEYoutubeKey = "phase3-phe-youtube" /* PHE YouTube Key Spanish */
+SET @engMainHeaderKey = "phase3-header-main-eng" /* English Main Header Key */
+SET @esMainHeaderKey  = "phase3-header-main-es" /* Spanish Main Header Key */
+SET @engMainBodyKey = "phase3-body-main-eng-1a" /* English Main Body Key */
+SET @esMainBodyKey = "phase3-body-main-es-1a" /* Spanish Main Body Key */
+SET @engSubHeaderKey = "phase3-header-sub-eng" /* English Sub Header Key */
+SET @esSubHeaderKey = "phase3-header-sub-es" /* Spanish Sub Header Key */
+SET @engButtonKey = "phase3-button-eng" /* English Button Key */
+SET @esButtonKey = "phase3-button-es" /* Spanish Button Key */
+SET @engAdditionalResourcesKey = "phase3-additional-resources-eng-1a" /* English Resources Key */
+SET @esAdditionalResourcesKey = "phase3-additional-resources-es-1a" /* Spanish Resources Key */
+SET @engQuestionKey = "phase3-questions-eng" /* English Questions Key */
+SET @esQuestionKey = "phase3-questions-es" /* Spanish Questions Key */
+SET @engBulletsKey = "phase3-bullets-eng" /* English Bullets Key */
+SET @esBulletsKey = "phase3-bullets-es" /* Spanish Bullets Key */
+SET @footerKey = "phase3-footer" /* 90Day Universal Footer Key */
+ 
+]%%
+%%=ContentBlockByKey(@ampBlockKey)=%%
+%%=ContentBlockByKey(@logoHeaderKey)=%%
+%%=ContentBlockByKey(@blueLineKey)=%%
+%%[IF @languagePreference == "Spanish" THEN]%%
+%%=ContentBlockByKey(@esMainHeaderKey)=%%
+%%=ContentBlockByKey(@esMainBodyKey)=%%
+
+%%=ContentBlockByKey(@esButtonKey)=%%
+%%=ContentBlockByKey(@blueLineKey)=%%
+%%=ContentBlockByKey(@engSubHeaderKey)=%%
+%%=ContentBlockByKey(@blueLineKey)=%%
+%%=ContentBlockByKey(@esAdditionalResourcesKey)=%%
+%%=ContentBlockByKey(@esQuestionKey)=%%
+%%[ELSE]%%
+%%=ContentBlockByKey(@engMainHeaderKey)=%%
+%%=ContentBlockByKey(@engMainBodyKey)=%%
+
+%%=ContentBlockByKey(@engButtonKey)=%%
+%%=ContentBlockByKey(@blueLineKey)=%%
+%%=ContentBlockByKey(@engSubHeaderKey)=%%
+%%=ContentBlockByKey(@blueLineKey)=%%
+%%=ContentBlockByKey(@engAdditionalResourcesKey)=%%
+%%=ContentBlockByKey(@engQuestionKey)=%%
+%%[ENDIF]%%
+%%=ContentBlockByKey(@blueLineKey)=%%

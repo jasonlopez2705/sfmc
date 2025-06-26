@@ -1,0 +1,12 @@
+%%[SET @lanPref = AttributeValue("LanguagePreference")
+IF @lanPref == "Spanish" THEN]%%
+Estado de Kentucky:
+¡Buenas noticias! Está aprobado para el Programa de Ayuda para Cuidados Infantiles (CCAP). Envíe la información del proveedor de cuidado infantil lo antes posible para completar el proceso. Seleccione un proveedor aquí: kynectbenefits.link/5pwga
+
+¿Tiene alguna pregunta? Llame al 1-855-306-8959.
+%%[ELSE]%%
+Commonwealth of Kentucky:
+Great news! You're approved for the Child Care Assistance Program (CCAP). Please submit your child care provider information as soon as possible to complete the process. Select a provider here: kynectbenefits.link/5pwga
+
+Questions? Call 1-855-306-8959
+%%[ENDIF]%%

@@ -1,0 +1,8 @@
+%%[
+SET @pwd = "pwd"
+SET @slt = "slt"
+SET @vec = "vec"
+
+SET @isEncrypted = EncryptSymmetric(@ToEncrypt, "AES", @pwd, @null, @slt, @null, @vec, @null)
+Output(Concat(@isEncrypted))
+]%%

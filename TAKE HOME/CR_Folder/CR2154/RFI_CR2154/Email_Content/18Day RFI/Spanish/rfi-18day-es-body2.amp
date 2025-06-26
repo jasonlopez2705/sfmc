@@ -1,0 +1,15 @@
+%%[ 
+SET @VerificationCheckListDueDate_yearFull = FormatDate([VerificationCheckListDueDate],"YYYY")
+SET @VerificationCheckListDueDate_monthNumber = FormatDate([VerificationCheckListDueDate],"MM") 
+SET @VerificationCheckListDueDate_dayNumber = FormatDate([VerificationCheckListDueDate],"dd")
+]%%
+<!-- ||| COPY START -->
+ <table align="center" border="0" cellpadding="0" cellspacing="0" class="w90" role="presentation" width="600">
+    <tr>
+        <!-- COPY -->
+        <td class="fontbody h2m" style="padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px; text-align: left; font-size: 17px; line-height: 1.4em; color: #000000; font-family: Georgia, serif;">
+            <p>Aunque se recomienda enviar sus documentos antes de la fecha<b> %%=v(@Initial_VerificationCheckListDueDate_dayNumber)=%%/%%=v(@Initial_VerificationCheckListDueDate_monthNumber)=%%/%%=v(@Initial_VerificationCheckListDueDate_yearFull)=%%</b> para que se puedan procesar a tiempo, su fecha l&iacute;mite final para enviar los comprobantes es el <b>%%=v(@VerificationCheckListDueDate_dayNumber)=%%/%%=v(@VerificationCheckListDueDate_monthNumber)=%%/%%=v(@VerificationCheckListDueDate_yearFull)=%%</b> antes de las 4:30 p.m., hora local.</p>
+        </td>
+    </tr>
+</table>
+<!-- COPY END ||| -->

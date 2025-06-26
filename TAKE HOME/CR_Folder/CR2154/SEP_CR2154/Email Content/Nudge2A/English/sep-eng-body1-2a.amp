@@ -1,0 +1,28 @@
+<!--Amscript below-->
+%%[
+<br />
+<br />
+SET @casenumber= AttributeValue("CaseNumber")
+<br />
+SET @sepreason = AttributeValue("SEPReason")
+<br />
+SET @languagepreference = AttributeValue("LanguagePreference")
+<br />
+<br />
+]%%
+<br>
+<br>
+<span style="font-family:Georgia;">
+    <span style="font-size:17px;">Thank you for submitting the requested proof for your QHP enrollment(s) on 
+        <b>Case&nbsp;#%%=v(@casenumber)=%%&nbsp;</b>
+    for the following Special Enrollment Reason:
+    <ul>
+        <li>
+            <b>%%=v(@sepreason)=%%</b>
+        </li>
+    </ul>
+    We have received your proof and are currently reviewing it. Please visit the kynect dashboard in the following 
+        <b>3-4 business days</b>
+    to view status.
+    </span>
+</span>

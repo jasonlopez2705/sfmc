@@ -1,0 +1,17 @@
+CaseNumber|ProgramCode|VerificationCheckListDueDate|VCLDescription|ValidSourceReceivedDate|VCLDescriptionEs|TypeOfAssistance|First_DueDate_Flag|Initial_VerificationCheckListDueDate
+100385939|MA|3/31/2025 10:47:00 AM|Residency||Residencia|CHCC|F||N||N|
+100387112|MA|4/4/2025 12:00:00 AM|APTC income verification||Verificación de ingresos APTC|APTC|F||N||N|
+100387143|SN|3/27/2025 10:08:19 AM|U.S. Citizenship||Ciudadanía de EE.UU.|SNAP|F||Y|Please Visit Nearest DCBS.dkajndelkabdabdau|N|03/22/2025
+100387143|SN|3/27/2025 10:08:19 AM|U.S. Citizenship||Ciudadanía de EE.UU.|SNAP|F||Y|Provided Document is half|N|03/22/2025
+100387143|SN|3/28/2025 12:00:00 AM|Residency||Residencia|SNAP|F||Y|Old Document|N|03/22/2025
+100387143|SN|3/28/2025 12:00:00 AM|Residency||Residencia|SNAP|F||Y|Only half of page is visible|N|03/22/2025
+100387288|SN|3/31/2025 12:00:00 AM|Proof of No Income||Comprobante de no ingreso|SNAP|F||N||N|
+100387288|SN|3/31/2025 12:00:00 AM|Residency||Residencia|SNAP|F||N||N|
+100387289|SN|3/31/2025 12:00:00 AM|Proof of No Income||Comprobante de no ingreso|SNAP|F||N||N|
+100387289|SN|3/31/2025 12:00:00 AM|Residency||Residencia|SNAP|F||N||N|
+100387293|SN|3/31/2025 12:00:00 AM|Everyone who lives with you in your home||Todas las personas que viven con usted en su hogar|SNAP|F||N||N|
+100387293|SN|3/31/2025 12:00:00 AM|Proof of No Income||Comprobante de no ingreso|SNAP|F||N||N|
+100387293|SN|3/31/2025 12:00:00 AM|Residency||Residencia|SNAP|F||N||N|
+100387301|SN|4/3/2025 12:00:00 AM|Everyone who lives with you in your home||Todas las personas que viven con usted en su hogar|SNAP|F||N||N|
+100387301|SN|4/3/2025 12:00:00 AM|Proof of No Income||Comprobante de no ingreso|SNAP|F||N||N|
+100387301|SN|4/3/2025 12:00:00 AM|Residency||Residencia|SNAP|F||N||N|

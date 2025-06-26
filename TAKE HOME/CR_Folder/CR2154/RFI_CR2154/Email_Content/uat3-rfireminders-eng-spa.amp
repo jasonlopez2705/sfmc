@@ -1,0 +1,63 @@
+<div style="font-size: 0px;line-height: 0px;">%%[
+
+/*FOOTER ADJUSTMENTS/NOTES: 
+• Toogle variable values to work default footer into campaign requirements.
+• View all CloudPage
+^https://amedeloitte.sharepoint.com/:x:/r/sites/KYSFMCImplementation/Shared%20Documents/General/2024/07.%20Maintenance%20%26%20Operations/API%20CloudPage%20List.xlsx?d=wbcabc04b3e8348aa88afdb7225df9ec7&csf=1&web=1&e=8D1ZUX
+
+*/
+
+SET @OVERRIDE_CampaignName = "RFI_Reminders"
+/*^SET value here if you don't have a Campaign_Name or CampaignName column or value SET.
+If variable ends up blank or undeclared, emailname_ value will be used;*/
+
+
+SET @cloudPageID_prefcenter = "5689"
+/*^If variable is blank or undeclared, manage preference URL will not display*/
+/*^PrefCenter URL is prepared to pass several variables to account for the various footers, listed below:
+   • eventdate
+   • Language__c
+*/
+
+
+SET @cloudPageID_unsub = "8098"
+/*^If variable is blank or undeclared, unsubsubscribe URL will not display*/
+/*^Unsub URL is prepared to pass several variables to account for the various footers, listed below:
+   • eventdate
+   • CampaignName
+   • kynectOnDemandRequestID__c
+   • DOIAgentID__c
+   • MessageType__c
+   • IndividualId__c
+   • IndividualId
+   • Indv_Campaign__c
+   • Indv_Campaing__c
+   • AuthRepID
+   • AuthRepId__c
+   • AppointmentId__c
+   • AudienceID
+   • SourceSystem
+   • Language__c
+*/
+
+
+SET @hideShowKynectDetails = ""
+/*^Value of N hide is, otherwise it shows kynect contact details (DEFAULT is to display)*/
+
+
+SET @hideShowSocialMedia = ""
+/*^Value of N hide is, otherwise it shows social media icons and links(DEFAULT is to display)*/
+
+
+SET @hideShowPhysicalAddress = ""
+/*^Value of N hide is, otherwise it shows address (DEFAULT is to display)*/
+
+
+
+]%%
+</div>
+%%[/*^Footer Settings*/]%%
+
+
+%%=ContentBlockById("15770621")=%%
+%%[/*^Content Builder\yEduAri\Footer Unification\PARENT-DO NOT EDIT\UAT_UNIFIED-DYNAMIC FOOTER - ENG & SPA*/]%%

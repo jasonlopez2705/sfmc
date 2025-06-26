@@ -1,0 +1,20 @@
+%%[
+SET @lanPref = AttributeValue("LanguagePreference")
+SET @vclDate = FormatDate(AttributeValue("VerificationCheckListDueDate"),"MM/dd/yyyy")
+SET @vclEsDate = FormatDate(@vclDate,"dd/MM/yyyy")
+SET @caseNumber = AttributeValue("CaseNumber")
+IF @lanPref == "Spanish" THEN
+]%%
+Hace poco le enviamos un aviso indicando el comprobante que se necesita para el Caso #%%=v(@caseNumber)=%%. Envie todos los comprobantes antes de %%=v(@vclEsDate)=%% para recibir beneficios. Puede encontrar instrucciones y mas detalles en su centro de mensajes de kynect: kynectbenefits.link/ptku
+
+¿Dudas? Llame al 1-855-306-8959
+
+Puede ignorar este correo electronico si usted ya completo la accion necesaria.   
+
+%%[ELSE]%%
+We recently sent you a notice listing the proof needed for Case #%%=v(@caseNumber)=%%. Please submit all requested proof by %%=v(@vclDate)=%% to receive benefits. Instructions and more details can be found in your kynect message center: kynectbenefits.link/73k7
+
+Questions? Call 1-855-306-8959
+
+You may ignore this message if you have already completed the necessary action.
+%%[ENDIF]%%

@@ -1,0 +1,11 @@
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="w90" role="presentation" width="600"> 
+    <tr>
+        <td class="fontbody h2m" style="padding-top: 15px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px; text-align: left; font-size: 17px; line-height: 1.4em; color: #000000; font-family: Georgia, serif;">Usted est&aacute; inscrito en beneficios de <b>Medicaid</b> con el <b>Caso</b> <b>#%%CaseNumber%%</b> que se debe renovar el <b>%%=v(Format(ReviewDueDate, "dd/MM/yyyy"))=%%</b>. Es posible que se requiera una acci&oacute;n para que usted contin&uacute;e recibiendo beneficios. Est&eacute; atento al aviso de renovaci&oacute;n que recibir&aacute; pronto.<br>
+        <br>
+        Por favor, aseg&uacute;rese de que la siguiente direcci&oacute;n postal es correcta. Si no lo es, por favor, inicie sesi&oacute;n en kynect e informe un cambio.<br>
+        <br>
+        Direcci&oacute;n registrada en este momento: %%MailingAddress%%<br>
+        <br>
+        Siga estas instrucciones si la direcci&oacute;n anterior no es correcta.</td>
+    </tr>
+</table>

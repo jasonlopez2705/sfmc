@@ -1,0 +1,50 @@
+%%[
+SET @ampBlockKey = "sep-amp-block" /* AMP Block Key */
+SET @logoHeaderKey = "ky-ssp-kynect-main" /* Logo Header Key */
+SET @purpleLineKey = "purple-horizontal-line" /* Purple Line Key */
+SET @footerKey = "sep-footer" /* RFI Universal Footer Key */
+/*English Content Block Keys*/
+SET @engMainHeaderKey = "sep-2a-header-main-eng" /* English Main Header Key */
+SET @engMainBodyKey = "sep-2a-body-main-eng" /* English Main Body Key */
+SET @engButtonKey = "sep-2a-button-eng" /* English Button Key */
+SET @engSubBodyKey = "sep-body-sub1-eng" /* English Sub Body Key */
+SET @engQuestionKey = "sep-questions-eng" /* English Questions Key */
+SET @engSubHeaderKey = "sep-header-sub1-eng" /* English Sub Header Key */
+SET @engUploadDocumentKey = "uploading-documents-eng" /* English Uploading Documents Video Key */
+SET @engAdditionalResourcesKey = "sep-additional-resources-eng" /* English Additional Resources Key */
+/*Spanish Content Block Keys*/
+SET @esMainHeaderKey  = "sep-2a-header-main-es" /* Spanish Main Header Key */
+SET @esMainBodyKey = "sep-2a-body-main-es" /* Spanish Main Body Key */
+SET @esButtonKey = "sep-2a-button-es" /* Spanish Button Key */
+SET @esSubBodyKey = "sep-body-sub1-es" /* Spanish Sub Body Key */
+SET @esQuestionKey = "sep-questions-es" /* Spanish Questions Key */
+SET @esSubHeaderKey = "sep-header-sub1-es" /* Spanish Sub Header Key */
+SET @esUploadDocumentKey = "uploading-documents-es" /* Spanish Uploading Documents Video Key */
+SET @esAdditionalResourcesKey = "sep-additional-resources-es" /* Spanish Additional Resources Key */
+]%%
+%%=ContentBlockByKey(@ampBlockKey)=%%
+%%=ContentBlockByKey(@logoHeaderKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%[IF @languagePreference == "Spanish" THEN]%%
+%%=ContentBlockByKey(@esMainHeaderKey)=%%
+%%=ContentBlockByKey(@esMainBodyKey)=%%
+%%=ContentBlockByKey(@esButtonKey)=%%
+%%=ContentBlockByKey(@esSubBodyKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@esQuestionKey)=%%
+%%=ContentBlockByKey(@esSubHeaderKey)=%%
+%%=ContentBlockByKey(@esUploadDocumentKey)=%%
+%%=ContentBlockByKey(@esAdditionalResourcesKey)=%%
+%%[ELSE]%%
+%%=ContentBlockByKey(@engMainHeaderKey)=%%
+%%=ContentBlockByKey(@engMainBodyKey)=%%
+%%=ContentBlockByKey(@engButtonKey)=%%
+%%=ContentBlockByKey(@engSubBodyKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@engQuestionKey)=%%
+%%=ContentBlockByKey(@engSubHeaderKey)=%%
+%%=ContentBlockByKey(@engUploadDocumentKey)=%%
+%%=ContentBlockByKey(@engAdditionalResourcesKey)=%%
+%%[ENDIF]%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@footerKey)=%%

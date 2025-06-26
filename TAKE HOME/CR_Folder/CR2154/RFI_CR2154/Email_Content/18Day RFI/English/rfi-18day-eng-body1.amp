@@ -1,0 +1,97 @@
+%%[
+SET @Initial_VerificationCheckListDueDate_yearFull = FormatDate([Initial_VerificationCheckListDueDate],"YYYY")
+SET @Initial_VerificationCheckListDueDate_monthNumber = FormatDate([Initial_VerificationCheckListDueDate],"MM") 
+SET @Initial_VerificationCheckListDueDate_dayNumber = FormatDate([Initial_VerificationCheckListDueDate],"dd")
+]%%
+<table align="center" border="0" cellpadding="0" cellspacing="0" class="w90" role="presentation" width="600">
+    <tr>
+        <td class="fontbody h2m" style="padding-top: 1px; padding-left: 20px; padding-right: 20px; text-align: left; font-size: 17px; line-height: 1.4em; color: #000000; font-family: Georgia, serif;">
+            We recently sent you a notice listing the proof we need for <b>Case #%%CaseNumber%%</b>. Please submit the proof listed by<b>&nbsp;%%=v(@Initial_VerificationCheckListDueDate_monthNumber)=%%/%%=v(@Initial_VerificationCheckListDueDate_dayNumber)=%%/%%=v(@Initial_VerificationCheckListDueDate_yearFull)=%%</b> to ensure timely processing.<br>
+%%[ 
+VAR @i, @j, @ProgramCodeName, @RFIspending, @counter 
+SET @CaseNumber = [CaseNumber] 
+SET @counter = 0 
+SET @TypeOfAssistance = TypeOfAssistance 
+SET @rows_CaseNumber = LookupOrderedRows("TEST_RFI_REMINDERS_PENDING_DE", 0,"ProgramCode asc", "CaseNumber", @CaseNumber) 
+SET @rowCount_CaseNumber = rowcount(@rows_CaseNumber) 
+IF @rowCount_CaseNumber > 0 THEN 
+    FOR @i = 1 TO @rowCount_CaseNumber DO 
+        SET @row_CaseNumber = row(@rows_CaseNumber, @i) /* get row based on counter */ 
+        SET @ProgramCode = field(@row_CaseNumber,"ProgramCode") 
+        IF @ProgramCode == 'KC' THEN 
+            SET @ProgramCodeName = 'Kinship Care' 
+        ELSEIF (@ProgramCode == 'QP' and @TypeOfAssistance == 'QHCP') THEN 
+            SET @ProgramCodeName = 'QHCP'
+        ELSEIF @ProgramCode == 'QP' THEN 
+            SET @ProgramCodeName = 'Qualified Health Plan'  
+        ELSEIF @ProgramCode == 'CC' THEN 
+            SET @ProgramCodeName = 'Child Care' 
+        ELSEIF @ProgramCode == 'KT' THEN 
+            SET @ProgramCodeName = 'KTAP' 
+        ELSEIF (@ProgramCode == 'MA' and @TypeOfAssistance == 'BHP') THEN 
+            SET @ProgramCodeName = 'Basic Health Plan (BHP)'
+        ELSEIF (@ProgramCode == 'SN' and @TypeOfAssistance == 'ESAP') THEN 
+            SET @ProgramCodeName = 'ESAP' 
+        ELSEIF (@ProgramCode == 'MA' and @TypeOfAssistance == 'APTC') THEN 
+            SET @ProgramCodeName = 'Qualified Health Plan with Payment Assistance (APTC)' 
+        ELSEIF @ProgramCode == 'SN' THEN 
+            SET @ProgramCodeName = 'SNAP' 
+        ELSEIF @ProgramCode == 'FAD' THEN 
+            SET @ProgramCodeName = 'FAD' 
+        ELSE 
+            SET @ProgramCodeName = "Medicaid/Payment Heath Assistance" 
+        ENDIF /*SET @ValidSourceReceivedDate = field(@row_CaseNumber,"ValidSourceReceivedDate") */ 
+        VAR @ValidSourceReceivedDate 
+        SET @Count_verified_docs = 0 
+        SET @row_verified_docs = LookupRows("TEST_RFI_REMINDERS_PENDING_DE","CaseNumber", @CaseNumber, "ProgramCode", @ProgramCode) 
+        SET @rowCount_verified_docs = rowcount(@row_verified_docs) 
+        IF @rowCount_verified_docs > 0 THEN 
+            FOR @x = 1 TO @rowCount_verified_docs DO 
+                SET @rownum_verified_docs = row(@row_verified_docs, @x) /* get row based on counter */ 
+                SET @ValidSourceReceivedDate = field(@rownum_verified_docs,"ValidSourceReceivedDate") 
+                IF IsNull(@ValidSourceReceivedDate) THEN 
+                    SET @Count_verified_docs = Add(@Count_verified_docs, 1) 
+                ENDIF 
+            NEXT @x 
+        ENDIF 
+        SET @VCLDescription_i = field(@row_CaseNumber,"VCLDescription") 
+        IF @Count_verified_docs > 0 and @VCLDescription_i != 'Verification of Auth Rep' THEN 
+            IF @counter == 0 THEN 
+]%%
+            <br>Proof needed for <b>%%=v(@ProgramCodeName)=%%:</b><br>
+%%[
+                SET @rows_ProgramCode = LookupOrderedRows("TEST_RFI_REMINDERS_PENDING_DE", 0,"VCLDescription asc", "CaseNumber", @CaseNumber, "ProgramCode", @ProgramCode) 
+                VAR @VCLDescription_prev 
+                SET @rowCount_ProgramCode = rowcount(@rows_ProgramCode) 
+                IF @rowCount_ProgramCode > 1 THEN 
+                    SET @counter = Subtract(@rowCount_ProgramCode, 1) 
+                ENDIF 
+                IF @rowCount_ProgramCode > 0 THEN 
+                    FOR @j = 1 TO @rowCount_ProgramCode DO 
+                        SET @row_ProgramCode = row(@rows_ProgramCode, @j) 
+                        SET @ValidSourceReceivedDate_inner = field(@row_ProgramCode,"ValidSourceReceivedDate") 
+                        SET @VCLDescription = field(@row_ProgramCode,"VCLDescription") 
+                        IF IsNull(@VCLDescription_prev) or @VCLDescription_prev != @VCLDescription THEN 
+                            SET @VCLDescription_prev = field(@row_ProgramCode,"VCLDescription") 
+                            IF IsNull(@ValidSourceReceivedDate_inner) and @VCLDescription != 'Verification of Auth Rep' THEN 
+]%%
+            <ul style="margin:1px 20px; padding: 0;">
+                <li>%%=v(@VCLDescription)=%%</li>
+            </ul> 
+%%[
+                            ENDIF 
+                        ENDIF 
+                    NEXT @j 
+                ENDIF 
+            ELSE 
+                    SET @counter = Subtract(@counter, 10) 
+            ENDIF
+        ENDIF 
+    NEXT @i 
+ENDIF 
+]%%
+            <br>Once you&rsquo;ve gathered the proof, please submit it using the button below. Examples of acceptable proof can be found on the notice in your<b> <a alias="txt_kynectmessagecenter" conversion="false" data-linkto="http://" href="https://kynect.ky.gov/benefits/s/message-center" style="color: #704D9F; text-decoration:none;" title="kynect message center">kynect message center</a></b>.
+            <p></p>
+        </td>
+    </tr>
+</table>

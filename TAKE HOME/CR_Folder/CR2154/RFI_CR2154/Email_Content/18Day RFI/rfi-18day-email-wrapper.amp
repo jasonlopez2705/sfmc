@@ -1,0 +1,59 @@
+%%[
+SET @ampBlockKey = "rfi-18day-amp-block" /* AMP Block Key*/
+SET @logoHeaderKey = "ky-ssp-kynect-main" /* Logo Header Key*/
+SET @purpleLineKey = "purple-horizontal-line" /* Purple Line Key*/
+
+SET @engMainHeaderKey = "rfi-18day-header-main-eng" /* English Main Header Key*/
+SET @engMainBodyKey = "rfi-18day-body-main-eng" /* English Main Body Key*/
+SET @engButtonKey = "rfi-18day-button-eng" /* English Button Key*/
+SET @engSubBodyKey = "rfi-18day-body-sub1-eng" /* English Second Body Key*/
+SET @engQuestionKey = "rfi-18day-questions-eng" /* English Questions Key*/
+SET @engSubHeaderKey = "rfi-18day-header-sub1-eng" /* English Uploading Documents Header Key*/
+SET @engUploadDocumentKey = "uploading-documents-eng" /* English Uploading Documents Video Key*/
+SET @engResourcesHeaderKey = "rfi-18day-header2-sub-eng" /* English Additional Resources Header Key*/
+SET @engAdditionalResourcesKey = "rfi-18day-additional-resources-eng" /* English Additional Resources Key*/
+
+SET @esMainHeaderKey  = "rfi-18day-header-main-es" /* Spanish Main Header Key*/
+SET @esMainBodyKey = "rfi-18day-body-main-es" /* Spanish Main Body Key*/
+SET @esButtonKey = "rfi-18day-button-es" /* Spanish Button Key*/
+SET @esSubBodyKey = "rfi-18day-body-sub1-es" /* Spanish Second Body Key*/
+SET @esQuestionKey = "rfi-18day-questions-es" /* Spanish Questions Key*/
+SET @esSubHeaderKey = "rfi-18day-header-sub1-es" /* Spanish Uploading Documents Header Key*/
+SET @esUploadDocumentKey = "uploading-documents-es" /* Spanish Uploading Documents Video Key*/
+SET @esResourcesHeaderKey = "rfi-18day-header-sub2-es" /* Spanish Additional Resources Header Key*/
+SET @esAdditionalResourcesKey = "rfi-18day-additional-resources-es" /* Spanish Additional Resources Key*/
+
+SET @footerKey = "rfi-footer" /* RFI Universal Footer Key*/
+]%%
+%%=ContentBlockByKey(@ampBlockKey)=%%
+%%=ContentBlockByKey(@logoHeaderKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%[IF @languagePreference == "Spanish" THEN]%%
+%%=ContentBlockByKey(@esMainHeaderKey)=%%
+%%=ContentBlockByKey(@esMainBodyKey)=%%
+%%=ContentBlockByKey(@esButtonKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@esSubBodyKey)=%%
+%%=ContentBlockByKey(@esQuestionKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@esSubHeaderKey)=%%
+%%=ContentBlockByKey(@esUploadDocumentKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@esResourcesHeaderKey)=%%
+%%=ContentBlockByKey(@esAdditionalResourcesKey)=%%
+%%[ELSE]%%
+%%=ContentBlockByKey(@engMainHeaderKey)=%%
+%%=ContentBlockByKey(@engMainBodyKey)=%%
+%%=ContentBlockByKey(@engButtonKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@engSubBodyKey)=%%
+%%=ContentBlockByKey(@engQuestionKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@engSubHeaderKey)=%%
+%%=ContentBlockByKey(@engUploadDocumentKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@engResourcesHeaderKey)=%%
+%%=ContentBlockByKey(@engAdditionalResourcesKey)=%%
+%%[ENDIF]%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@footerKey)=%%

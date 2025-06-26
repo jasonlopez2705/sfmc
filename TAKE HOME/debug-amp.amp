@@ -1,0 +1,40 @@
+%%[
+SET @address = "717 Four Mile Rd Alexandria, VA 22305"
+ 
+/* Find the position of the first space */
+IF IndexOf(@address, " ") == 0 THEN
+    RAISEERROR("No space found in the address string.", true)
+ELSE
+    SET @firstSpacePos = IndexOf(@address, " ")
+ENDIF
+ 
+/* Extract the number part of the address */
+IF EMPTY(@firstSpacePos) OR @firstSpacePos <= 0 THEN
+    RAISEERROR("Invalid position for the first space in the address.", true)
+ELSE
+    SET @numberPart = Substring(@address, 1, @firstSpacePos)
+ENDIF
+
+/* Extract the rest of the address */
+IF EMPTY(@numberPart) THEN
+    RAISEERROR("Failed to extract the number part of the address.", true)
+ELSE
+    SET @restOfAddress = Substring(@address, @firstSpacePos)
+ENDIF
+
+/* Replace the first three characters with "***" */
+IF EMPTY(@restOfAddress) OR Length(@restOfAddress) < 4 THEN
+    RAISEERROR("The rest of the address is too short to mask.", true)
+ELSE
+    SET @maskedRestOfAddress = Concat("***", Substring(@restOfAddress, 4))
+ENDIF
+
+/* Concatenate the number part with the masked rest of the address */
+IF EMPTY(@maskedRestOfAddress) THEN
+    RAISEERROR("Failed to mask the rest of the address.", true)
+ELSE
+    SET @fullAddress = Concat(@numberPart, " ", @maskedRestOfAddress)
+ENDIF
+]%%
+
+%%=v(@debugVariable)=%%

@@ -1,0 +1,58 @@
+%%[
+SET @ampBlockKey = "rfi-insufficient-amp-block" /* AMP Block Key */
+SET @logoHeaderKey = "ky-ssp-kynect-main" /* Logo Header Key */
+SET @purpleLineKey = "purple-horizontal-line" /* Purple Line Key */
+SET @footerKey = "rfi-footer" /* RFI Universal Footer Key */
+/*English Content Block Keys*/
+SET @engMainHeaderKey = "rfi-insufficient-header-main-eng" /* English Main Header Key */
+SET @engMainBodyKey = "rfi-insufficient-body-main-eng" /* English Main Body Key */
+SET @engBulletsBodyKey = "rfi-insufficient-body-bullets-eng" /* English Bullets Body Key */
+SET @engSubBodyKey = "rfi-insufficient-body-sub1-eng" /* English Sub Body Key */
+SET @engButtonKey = "rfi-insufficient-button-eng" /* English Button Key */
+SET @engSubBody2Key = "rfi-insufficient-body-sub2-eng" /* English Sub Body Key */
+SET @engSubHeaderKey = "rfi-insufficient-header-sub-eng" /* English Sub Header Key */
+SET @engUploadDocumentKey = "uploading-documents-eng" /* English Uploading Documents Video Key */
+SET @engAdditionalResourcesKey = "rfi-insuffi-additional-resources-eng" /* English Additional Resources Key */
+SET @engQuestionKey = "rfi-insufficient-questions-eng" /* English Questions Key */
+/*Spanish Content Block Keys*/
+SET @esMainHeaderKey  = "rfi-insufficient-header-main-es" /* Spanish Main Header Key */
+SET @esMainBodyKey = "rfi-insufficient-body-main-es" /* Spanish Main Body Key */
+SET @esBulletsBodyKey = "rfi-insufficient-body-bullets-es" /* Spanish Bullets Body Key */
+SET @esSubBodyKey = "rfi-insufficient-body-sub1-es" /* Spanish Sub Body Key */
+SET @esButtonKey = "rfi-insufficient-button-es" /* Spanish Button Key */
+SET @esSubBody2Key = "rfi-insufficient-body-sub2-es" /* Spanish Sub Body Key */
+SET @esSubHeaderKey = "rfi-insufficient-header-sub-es" /* Spanish Sub Header Key */
+SET @esUploadDocumentKey = "uploading-documents-es" /* Spanish Uploading Documents Video Key */
+SET @esAdditionalResourcesKey = "rfi-insuffic-additional-resources-es" /* Spanish Additional Resources Key */
+SET @esQuestionKey = "rfi-insufficient-questions-es" /* Spanish Questions Key */
+]%%
+%%=ContentBlockByKey(@ampBlockKey)=%%
+%%=ContentBlockByKey(@logoHeaderKey)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%[IF @languagePreference == "Spanish" THEN]%%
+%%=ContentBlockByKey(@esMainHeaderKey)=%%
+%%=ContentBlockByKey(@esMainBodyKey)=%%
+%%=ContentBlockByKey(@esBulletsBodyKey)=%%
+%%=ContentBlockByKey(@esSubBodyKey)=%%
+%%=ContentBlockByKey(@esButtonKey)=%%
+%%=ContentBlockByKey(@esSubBody2Key)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@esSubHeaderKey)=%%
+%%=ContentBlockByKey(@esUploadDocumentKey)=%%
+%%=ContentBlockByKey(@esAdditionalResourcesKey)=%%
+%%=ContentBlockByKey(@esQuestionKey)=%%
+%%[ELSE]%%
+%%=ContentBlockByKey(@engMainHeaderKey)=%%
+%%=ContentBlockByKey(@engMainBodyKey)=%%
+%%=ContentBlockByKey(@engBulletsBodyKey)=%%
+%%=ContentBlockByKey(@engSubBodyKey)=%%
+%%=ContentBlockByKey(@engButtonKey)=%%
+%%=ContentBlockByKey(@engSubBody2Key)=%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@engSubHeaderKey)=%%
+%%=ContentBlockByKey(@engUploadDocumentKey)=%%
+%%=ContentBlockByKey(@engAdditionalResourcesKey)=%%
+%%=ContentBlockByKey(@engQuestionKey)=%%
+%%[ENDIF]%%
+%%=ContentBlockByKey(@purpleLineKey)=%%
+%%=ContentBlockByKey(@footerKey)=%%

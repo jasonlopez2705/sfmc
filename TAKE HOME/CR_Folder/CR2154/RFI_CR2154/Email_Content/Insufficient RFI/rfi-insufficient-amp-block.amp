@@ -1,0 +1,15 @@
+%%[
+SET @caseNumber = AttributeValue("CaseNumber")
+SET @languagePreference = AttributeValue("LanguagePreference")
+SET @isExtended = AttributeValue("IsExtended")
+SET @attr_DropDown_Comments = AttributeValue("DropDown_Comments")
+SET @verificationCheckListDueDate = AttributeValue("VerificationChecklistDueDate")
+
+IF @languagePreference == "Spanish" THEN
+    SET @subjectLine = "Qué debe hacer: Se requieren comprobantes adicionales para su caso"
+    SET @preHeader = "Los comprobantes presentados no fueron suficientes. Por favor envíe los documentos necesarios."
+ELSE
+    SET @subjectLine = "Action Required: Additional proof required for your case"
+    SET @preHeader = "Your submitted proof was insufficient. Please submit the necessary documents."
+ENDIF
+]%%

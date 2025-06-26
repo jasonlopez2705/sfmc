@@ -1,0 +1,23 @@
+%%[
+SET @caseNum = AttributeValue("CaseNumber")
+SET @lanPref = AttributeValue("LanguagePreference")
+SET @vclDate = FormatDate(AttributeValue("VerificationCheckListDueDate"),"MM/dd/yyyy")
+SET @vclEsDate = FormatDate(@vclDate,"dd/MM/yyyy")
+IF @lanPref == "Spanish" THEN
+]%%
+Estado de Kentucky:
+Recientemente le enviamos un aviso enumerando los comprobantes necesarios para el Caso #%%=v(@caseNum)=%%. Envie los comprobantes indicados antes de la fecha %%=v(@vclEsDate)=%% para garantizar un procesamiento oportuno. La fecha limite final para enviar los comprobantes es a las 4:30 p.m., hora local, del %%=v(@vclEsDate)=%%.
+
+Visite su centro de mensajes de kynect para obtener instrucciones: kynectbenefits.link/08rj
+
+¿Alguna pregunta? Llame al 1-855-306-8959. 
+%%[ELSE]%%
+Commonwealth of Kentucky: 
+We recently sent you a notice listing the proof needed for Case #%%=v(@caseNum)=%%. Please submit the proof listed by %%=v(@vclDate)=%% to ensure timely processing.
+
+Your final deadline to submit the proof is 4:30PM local time on %%=v(@vclDate)=%%.
+
+Please visit your kynect message center for instructions: kynectbenefits.link/ejy9
+
+Questions? Call 1-855-306-8959
+%%[ENDIF]%%
