@@ -2,10 +2,10 @@
 SET @languagePreference = AttributeValue("LanguagePreference")
 
 IF @languagePreference == "Spanish" THEN
-    SET @subjectLine = "Comenzar: Cargue la información de cuidado infantil"
-    SET @preHeader = "¡Cargue la información de su proveedor de cuidado infantil hoy mismo!"
+    SET @subjectLine = "Hola1"
+    SET @preHeader = "¡Adios1!"
 ELSE
-    SET @subjectLine = "Get Started: Upload Your Child Care Information"
-    SET @preHeader = "Upload Your Child Care Provider Info Today!"
+    SET @subjectLine = "Hello1"
+    SET @preHeader = "Goodbye1!"
 ENDIF
 ]%%

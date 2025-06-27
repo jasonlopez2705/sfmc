@@ -1,20 +1,20 @@
 %%[
-SET @ampBlockKey = "ccap1-amp-block" /* AMP Block Key*/
+SET @ampBlockKey = " de1-amp-block" /* AMP Block Key*/
 SET @logoHeaderKey = "ky-ssp-kynect-main" /* Logo Header Key*/
 SET @purpleLineKey = "purple-horizontal-line" /* Purple Line Key*/
-SET @engMainHeaderKey = "ccap1-header-main-eng" /* English Main Header Key*/
-SET @engMainBodyKey = "ccap1-body-main-eng" /* English Main Body Key*/
-SET @engButtonKey = "ccap-button-eng" /* English Button Key*/
-SET @engSubBodyKey = "ccap-body-sub1-eng" /* English Second Body Key*/
-SET @engAdditionalResourcesKey = "ccap-additional-resources-eng" /* English Additional Resources Key*/
-SET @engQuestionKey = "ccap-questions-eng" /* English Questions Key*/
-SET @esMainHeaderKey  = "ccap1-header-main-es" /* Spanish Main Header Key*/
-SET @esMainBodyKey = "ccap1-body-main-es" /* Spanish Main Body Key*/
-SET @esButtonKey = "ccap-button-es" /* Spanish Button Key*/
-SET @esSubBodyKey = "ccap-body-sub1-es" /* Spanish Second Body Key*/
-SET @esAdditionalResourcesKey = "ccap-additional-resources-es" /* Spanish Additional Resources Key*/
-SET @esQuestionKey = "ccap-questions-es" /* Spanish Questions Key*/
-SET @footerKey = "ccap-footer" /* CCAP Universal Footer Key*/
+SET @engMainHeaderKey = " de1-header-main-eng" /* English Main Header Key*/
+SET @engMainBodyKey = " de1-body-main-eng" /* English Main Body Key*/
+SET @engButtonKey = " de-button-eng" /* English Button Key*/
+SET @engSubBodyKey = " de-body-sub1-eng" /* English Second Body Key*/
+SET @engAdditionalResourcesKey = " de-additional-resources-eng" /* English Additional Resources Key*/
+SET @engQuestionKey = " de-questions-eng" /* English Questions Key*/
+SET @esMainHeaderKey  = " de1-header-main-es" /* Spanish Main Header Key*/
+SET @esMainBodyKey = " de1-body-main-es" /* Spanish Main Body Key*/
+SET @esButtonKey = " de-button-es" /* Spanish Button Key*/
+SET @esSubBodyKey = " de-body-sub1-es" /* Spanish Second Body Key*/
+SET @esAdditionalResourcesKey = " de-additional-resources-es" /* Spanish Additional Resources Key*/
+SET @esQuestionKey = " de-questions-es" /* Spanish Questions Key*/
+SET @footerKey = " de-footer" /*  de Universal Footer Key*/
 ]%%
 %%=ContentBlockByKey(@ampBlockKey)=%%
 %%=ContentBlockByKey(@logoHeaderKey)=%%

@@ -189,13 +189,13 @@ try {
         var jsonStr = Stringify(response); // used for debugging
         var items = Platform.Function.ParseJSON(response[0]).items; // parse the JSON response from the API
 
-        var deUpsert = "journey-history"; // grab the external key of the DE here     
+        var deUpsert = "JourneyHistory"; // grab the external key of the DE here     
       
         var journeyHistoryDE = DataExtension.Init(deUpsert); // initialize the DE using the variable containing the external key here
 
-        //var successful = journeyHistoryUpsert(items, journeyHistoryDE); // upsert the data into the DE
+        var successful = journeyHistoryUpsert(items, deUpsert); // upsert the data into the DE
 
-        //log("Journey History Upserted Successfully: " + successful + " records"); // log the success message
+        log("Journey History Upserted Successfully: " + successful + " records"); // log the success message
         
         log(items);
       

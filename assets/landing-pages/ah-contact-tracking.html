@@ -1,0 +1,52 @@
+
+%%[
+
+/* Fetching data from All_Contacts_Log DE */
+SET @currentTimestamp = Now()
+SET @easternTimestamp = DateAdd(@currentTimestamp, 2, "H")
+SET @minute = DatePart(@easternTimestamp, "MI")
+
+IF @minute < 15 THEN
+    SET @formattedTimestamp = FormatDate(DateAdd(@currentTimestamp, -1, "H"), "yyyy-MM-dd HH:00:00")
+    SET @easternTimestamp = FormatDate(DateAdd(@easternTimestamp, -1, "H"), "MM-dd-yyyy hh:15:00")
+ELSE
+    SET @formattedTimestamp = FormatDate(@currentTimestamp, "yyyy-MM-dd HH:00:00")
+    SET @easternTimestamp = FormatDate(@easternTimestamp, "MM-dd-yyyy hh:15:00")
+ENDIF
+
+SET @allContactsRows = LookupOrderedRows("All_Contacts_Log", 1, "Timestamp", "Timestamp", @formattedTimestamp)
+SET @updatedAllContactsRow = Row(@allContactsRows, 1)
+SET @allContactsCount = Field(@updatedAllContactsRow, "All_Contacts")
+SET @contactChange = Field(@updatedAllContactsRow, "ContactChange")
+
+]%%
+
+<div class="dashboard">
+
+<!-- All Contacts Count -->
+    <div class="key-health-cards">
+        <h2>All Contacts Count</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">All Contacts Count</div>
+                <div class="card-body">
+                    <div>%%=FormatNumber(@allContactsCount, "N0")=%%</div>
+                </div>     
+            </div>
+            <div class="card">
+                <div class="card-header">Contact Change Since Last Hour</div>
+                <div class="card-body">
+                    <div>%%=FormatNumber(@contactChange, "N0")=%%</div>
+                </div>     
+            </div>
+            <div class="card">
+                <div class="card-header">Last Time Updated</div>
+                <div class="card-body">
+                    <div>%%=v(@formattedTimestamp)=%%</div>
+                </div>     
+            </div>
+        </div>
+    <div>
+
+
+</div>

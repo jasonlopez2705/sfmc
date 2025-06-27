@@ -2,10 +2,10 @@
 SET @languagePreference = AttributeValue("LanguagePreference")
 
 IF @languagePreference == "Spanish" THEN
-    SET @subjectLine = "Se acerca su renovación de Medicaid"
-    SET @preHeader = "Prepárese para la renovación confirmando su dirección en kynect"
+    SET @subjectLine = "Hola1"
+    SET @preHeader = "Adios1"
 ELSE
-    SET @subjectLine = "Your Medicaid renewal is coming up"
-    SET @preHeader = "Prepare for renewal by confirming your address in kynect"
+    SET @subjectLine = "Hello1"
+    SET @preHeader = "Goodbye1"
 ENDIF
 ]%%

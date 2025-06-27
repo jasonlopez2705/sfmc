@@ -2,7 +2,7 @@
     ------------------------------------------------------------------------------
     Script Name: daily-average-sends-limit.sql
     Description:
-        This script calculates the average daily send count and standard deviation 
+        This query calculates the average daily send count and standard deviation 
         for each automation over the past 30 days, and determines a recommended 
         send limit (mean + 2*stddev) for each automation in Salesforce Marketing Cloud.
 

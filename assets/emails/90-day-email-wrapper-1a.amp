@@ -1,26 +1,26 @@
 %%[
-SET @ampBlockKey = "90day-amp-block" /* AMP Block Key */ 
+SET @ampBlockKey = " de1-amp-block" /* AMP Block Key */ 
 SET @logoHeaderKey = "ky-ssp-kynect-healthcare-coverag-eng" /* Logo Header Key */
 SET @blueLineKey = "blue-horizontal-line" /* Blue Line Key */
-SET @engPHEYoutubeKey = "90day-phe-youtube" /* PHE YouTube Key */
-SET @esPHEYoutubeKey = "90day-phe-youtube" /* PHE YouTube Key Spanish */
-SET @engMainHeaderKey = "90day-header-main-eng" /* English Main Header Key */
-SET @esMainHeaderKey  = "90day-header-main-es" /* Spanish Main Header Key */
-SET @engMainBodyKey = "90day-body-main-eng-1a" /* English Main Body Key */
-SET @esMainBodyKey = "90day-body-main-es-1a" /* Spanish Main Body Key */
-SET @engSubHeaderKey = "90day-header-sub-eng-1a" /* English Sub Header Key */
-SET @esSubHeaderKey = "90day-header-sub-es-1a" /* Spanish Sub Header Key */
-SET @engButtonKey = "90day-button-eng-1a" /* English Button Key */
-SET @esButtonKey = "90day-button-es-1a" /* Spanish Button Key */
-SET @engAdditionalResourcesKey = "90day-additional-resources-eng-1a" /* English Resources Key */
-SET @esAdditionalResourcesKey = "90day-additional-resources-es-1a" /* Spanish Resources Key */
-SET @engQuestionKey = "90day-questions-eng" /* English Questions Key */
-SET @esQuestionKey = "90day-questions-es" /* Spanish Questions Key */
-SET @engBulletsKey = "90day-bullets-eng-1a" /* English Bullets Key */
-SET @esBulletsKey = "90day-bullets-es-1a" /* Spanish Bullets Key */
-SET @engFootnoteKey = "90day-footnote-eng" /* English Footer Key */
-SET @esFootnoteKey = "90day-footnote-es" /* Spanish Footer */
-SET @footerKey = "90day-footer" /* 90Day Universal Footer Key */
+SET @engPHEYoutubeKey = " de1-phe-youtube" /* PHE YouTube Key */
+SET @esPHEYoutubeKey = " de1-phe-youtube" /* PHE YouTube Key Spanish */
+SET @engMainHeaderKey = " de1-header-main-eng" /* English Main Header Key */
+SET @esMainHeaderKey  = " de1-header-main-es" /* Spanish Main Header Key */
+SET @engMainBodyKey = " de1-body-main-eng-1a" /* English Main Body Key */
+SET @esMainBodyKey = " de1-body-main-es-1a" /* Spanish Main Body Key */
+SET @engSubHeaderKey = " de1-header-sub-eng-1a" /* English Sub Header Key */
+SET @esSubHeaderKey = " de1-header-sub-es-1a" /* Spanish Sub Header Key */
+SET @engButtonKey = " de1-button-eng-1a" /* English Button Key */
+SET @esButtonKey = " de1-button-es-1a" /* Spanish Button Key */
+SET @engAdditionalResourcesKey = " de1-additional-resources-eng-1a" /* English Resources Key */
+SET @esAdditionalResourcesKey = " de1-additional-resources-es-1a" /* Spanish Resources Key */
+SET @engQuestionKey = " de1-questions-eng" /* English Questions Key */
+SET @esQuestionKey = " de1-questions-es" /* Spanish Questions Key */
+SET @engBulletsKey = " de1-bullets-eng-1a" /* English Bullets Key */
+SET @esBulletsKey = " de1-bullets-es-1a" /* Spanish Bullets Key */
+SET @engFootnoteKey = " de1-footnote-eng" /* English Footer Key */
+SET @esFootnoteKey = " de1-footnote-es" /* Spanish Footer */
+SET @footerKey = " de1-footer" /*  de1 Universal Footer Key */
 ]%%
 %%=ContentBlockByKey(@ampBlockKey)=%%
 %%=ContentBlockByKey(@logoHeaderKey)=%%

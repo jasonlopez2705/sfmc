@@ -2,8 +2,7 @@
     Query: Click URL Journey Tracking
 
     Description:
-    This query retrieves detailed information about email click events related to a specific journey ("NOSE_Intake_Journey_Final") 
-    and a specific URL ("https://kynect.ky.gov/benefits/s/appointment-summary") within the last month. 
+    This query retrieves detailed information about email click events related to a specific journey within the last month. 
     It joins click event data with job, journey activity, and journey metadata to provide context for each click.
 
     Output Columns:
@@ -55,5 +54,5 @@ LEFT JOIN _Journey
     ON _JourneyActivity.VersionID = _Journey.VersionID
 WHERE
     _Click.EventDate >= DATEADD(month, -1, GETDATE())
-AND _Journey.JourneyName = 'NOSE_Intake_Journey_Final'
-AND _Click.URL = 'https://kynect.ky.gov/benefits/s/appointment-summary'
+AND _Journey.JourneyName = ''
+AND _Click.URL = ''

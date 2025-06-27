@@ -1,30 +1,30 @@
 %%[
-SET @ampBlockKey = "rfi-insufficient-amp-block" /* AMP Block Key */
+SET @ampBlockKey = " de3-amp-block" /* AMP Block Key */
 SET @logoHeaderKey = "ky-ssp-kynect-main" /* Logo Header Key */
 SET @purpleLineKey = "purple-horizontal-line" /* Purple Line Key */
-SET @footerKey = "rfi-footer" /* RFI Universal Footer Key */
+SET @footerKey = "de3-footer" /* Universal Footer Key */
 /*English Content Block Keys*/
-SET @engMainHeaderKey = "rfi-insufficient-header-main-eng" /* English Main Header Key */
-SET @engMainBodyKey = "rfi-insufficient-body-main-eng" /* English Main Body Key */
-SET @engBulletsBodyKey = "rfi-insufficient-body-bullets-eng" /* English Bullets Body Key */
-SET @engSubBodyKey = "rfi-insufficient-body-sub1-eng" /* English Sub Body Key */
-SET @engButtonKey = "rfi-insufficient-button-eng" /* English Button Key */
-SET @engSubBody2Key = "rfi-insufficient-body-sub2-eng" /* English Sub Body Key */
-SET @engSubHeaderKey = "rfi-insufficient-header-sub-eng" /* English Sub Header Key */
+SET @engMainHeaderKey = " de3-header-main-eng" /* English Main Header Key */
+SET @engMainBodyKey = " de3-body-main-eng" /* English Main Body Key */
+SET @engBulletsBodyKey = " de3-body-bullets-eng" /* English Bullets Body Key */
+SET @engSubBodyKey = " de3-body-sub1-eng" /* English Sub Body Key */
+SET @engButtonKey = " de3-button-eng" /* English Button Key */
+SET @engSubBody2Key = " de3-body-sub2-eng" /* English Sub Body Key */
+SET @engSubHeaderKey = " de3-header-sub-eng" /* English Sub Header Key */
 SET @engUploadDocumentKey = "uploading-documents-eng" /* English Uploading Documents Video Key */
-SET @engAdditionalResourcesKey = "rfi-insuffi-additional-resources-eng" /* English Additional Resources Key */
-SET @engQuestionKey = "rfi-insufficient-questions-eng" /* English Questions Key */
+SET @engAdditionalResourcesKey = "de3-additional-resources-eng" /* English Additional Resources Key */
+SET @engQuestionKey = " de3-questions-eng" /* English Questions Key */
 /*Spanish Content Block Keys*/
-SET @esMainHeaderKey  = "rfi-insufficient-header-main-es" /* Spanish Main Header Key */
-SET @esMainBodyKey = "rfi-insufficient-body-main-es" /* Spanish Main Body Key */
-SET @esBulletsBodyKey = "rfi-insufficient-body-bullets-es" /* Spanish Bullets Body Key */
-SET @esSubBodyKey = "rfi-insufficient-body-sub1-es" /* Spanish Sub Body Key */
-SET @esButtonKey = "rfi-insufficient-button-es" /* Spanish Button Key */
-SET @esSubBody2Key = "rfi-insufficient-body-sub2-es" /* Spanish Sub Body Key */
-SET @esSubHeaderKey = "rfi-insufficient-header-sub-es" /* Spanish Sub Header Key */
+SET @esMainHeaderKey  = " de3-header-main-es" /* Spanish Main Header Key */
+SET @esMainBodyKey = " de3-body-main-es" /* Spanish Main Body Key */
+SET @esBulletsBodyKey = " de3-body-bullets-es" /* Spanish Bullets Body Key */
+SET @esSubBodyKey = " de3-body-sub1-es" /* Spanish Sub Body Key */
+SET @esButtonKey = " de3-button-es" /* Spanish Button Key */
+SET @esSubBody2Key = " de3-body-sub2-es" /* Spanish Sub Body Key */
+SET @esSubHeaderKey = " de3-header-sub-es" /* Spanish Sub Header Key */
 SET @esUploadDocumentKey = "uploading-documents-es" /* Spanish Uploading Documents Video Key */
-SET @esAdditionalResourcesKey = "rfi-insuffic-additional-resources-es" /* Spanish Additional Resources Key */
-SET @esQuestionKey = "rfi-insufficient-questions-es" /* Spanish Questions Key */
+SET @esAdditionalResourcesKey = "de3-additional-resources-es" /* Spanish Additional Resources Key */
+SET @esQuestionKey = " de3-questions-es" /* Spanish Questions Key */
 ]%%
 %%=ContentBlockByKey(@ampBlockKey)=%%
 %%=ContentBlockByKey(@logoHeaderKey)=%%
